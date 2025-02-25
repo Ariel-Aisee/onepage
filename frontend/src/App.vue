@@ -1,5 +1,53 @@
 <template>
   <div id="app">
+    <!-- 導覽列 -->
+    <nav
+      class="navbar navbar-expand-lg fixed-top"
+      :class="{ 'navbar-scrolled': isScrolled }"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">宏家科技</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="切換導航"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('services')"
+                >服務項目</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('products')"
+                >產品介紹</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('contact')"
+                >聯絡我們</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <!-- 頂部 Hero 區塊 -->
     <section class="hero text-white text-center d-flex align-items-center">
       <div class="container">
@@ -204,6 +252,12 @@ export default {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
+    scrollToSection: (sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    },
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
@@ -215,13 +269,20 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap");
 /* HERO 區塊 */
 .hero {
   background: linear-gradient(135deg, #ffffff, #000000);
-  min-height: 400px;
+  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+/* HERO 字體*/
+.hero h1 {
+  background: linear-gradient(135deg, #0072bc 50%, #000 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* 服務 & 產品卡片 */
@@ -330,5 +391,22 @@ export default {
     flex: 0 0 100%;
     max-width: 100%;
   }
+}
+
+/* Navbar */
+.navbar {
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+}
+.navbar-scrolled {
+  background: rgba(0, 0, 0, 0.8);
+}
+.navbar .nav-link {
+  color: rgb(0, 0, 0); /* 預設文字顏色 */
+  transition: color 0.3s ease-in-out; /* 平滑變化 */
+}
+
+.navbar .nav-link:hover {
+  color: #0072bc; /* 滑鼠移過去變成藍色 */
 }
 </style>
