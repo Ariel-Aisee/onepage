@@ -270,7 +270,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap");
-/* HERO 區塊 */
+/* Top 區塊 */
 .hero {
   background: linear-gradient(135deg, #ffffff, #000000);
   min-height: 300px;
@@ -278,7 +278,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-/* HERO 字體*/
+/* Top 字體*/
 .hero h1 {
   background: linear-gradient(135deg, #0072bc 50%, #000 50%);
   -webkit-background-clip: text;
@@ -292,6 +292,7 @@ export default {
   overflow: hidden;
   cursor: pointer;
 }
+/*Card back*/
 .card:hover {
   transform: scale(1.05);
   box-shadow: 2px 2px 10px rgba(253, 251, 251, 0.2);
@@ -398,14 +399,16 @@ export default {
   transition: all 0.3s ease-in-out;
   background: transparent;
 }
+/*navbar text*/
 .navbar-scrolled {
   background: rgba(0, 0, 0, 0.8);
 }
+/*navbar text back*/
 .navbar .nav-link {
   color: rgb(0, 0, 0); /* 預設文字顏色 */
   transition: color 0.3s ease-in-out; /* 平滑變化 */
 }
-
+/*navbar text back*/
 .navbar .nav-link:hover {
   color: #0072bc; /* 滑鼠移過去變成藍色 */
 }
