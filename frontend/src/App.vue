@@ -17,7 +17,7 @@
               <a class="nav-link" href="#" @click.prevent="scrollToSection('products')">產品介紹</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollToSection('contact')">聯絡我們</a>
+              <a class="nav-link" href="#" @click.prevent="scrollToSection('contact')">聯絡宏家</a>
             </li>
           </ul>
         </div>
@@ -31,10 +31,10 @@
       </div>
     </section>
 
-    <!-- 服務項目 -->
+    <!-- 營業項目 -->
     <section id="services" class="py-5 bg-light">
       <div class="container">
-        <h2 class="text-center fw-bold mb-4">服務項目</h2>
+        <h2 class="text-center fw-bold mb-4">營業項目</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div v-for="service in services" :key="service.title" class="col">
             <div class="card h-100 shadow-sm border-0" @click="openCard(service)">
@@ -121,7 +121,7 @@
       <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
         <!-- 左側：聯絡資訊 -->
         <div class="contact-info text-center text-md-start">
-          <h3 class="fw-bold mb-2">聯絡我們</h3>
+          <h3 class="fw-bold mb-2">聯絡宏家</h3>
           <p class="mb-1">
             <i class="bi bi-envelope-fill"></i> {{ contact.name }}
           </p>
@@ -134,7 +134,7 @@
           <br>
           <h3 class="fw-bold mb-2">聯絡電話</h3>
           <p class="mb-1">
-            <i class="bi bi-telephone-fill"></i> 銷售窗口：
+            <i class="bi bi-telephone-fill"></i> 銷售窗口
           </p>
           <p class="mb-1">
             <i class="bi bi-envelope-fill"></i> {{ contact.person_1 }}
@@ -143,10 +143,16 @@
             <i class="bi bi-envelope-fill"></i> {{ contact.person_2 }}
           </p>
           <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i> 業務信箱：{{ contact.email }}
+            <i class="bi bi-envelope-fill"></i> 業務信箱
           </p>
           <p class="mb-1">
-            <i class="bi bi-geo-alt-fill"></i> 聯絡地址：{{ contact.address }}
+            <i class="bi bi-envelope-fill"></i>{{ contact.email }}
+          </p>
+          <p class="mb-1">
+            <i class="bi bi-geo-alt-fill"></i> 聯絡地址
+          </p>
+          <p class="mb-1">
+            <i class="bi bi-envelope-fill"></i>{{ contact.address }}
           </p>
         </div>
 
@@ -178,11 +184,12 @@ export default {
     return {
       title: "宏家科技",
       subtitle:
-        "我們成立於2023,主營項目為電子料的排單&現貨銷售(電子料包含主動IC/被動元件/連接器/感測器/模組...等等)<br>" +
+        "宏家科技 (AiSee Technology) 成立於2023年，主要服務項目為各類型電子料的排單&現貨銷售。<br>" +
+        "電子料包含：主動IC/被動元件/連接器/感測器/模組…等等。<br>"+
         "我們提供的產品適用於各種產業應用領域。<br>" +
-        "例如IC測試廠、SMT廠、通訊、電腦、消費電子、醫療、工控、穿戴裝置、AI等等。",
+        "例如：IC測試廠、SMT廠、通訊、電腦、消費電子、醫療、工控、穿戴裝置、AI等等。",
       showBackToTop: false,
-      // 服務項目
+      // 營業項目
       services: [
         {
           title:
