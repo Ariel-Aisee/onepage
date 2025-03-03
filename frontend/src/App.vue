@@ -159,9 +159,10 @@
         <!-- 右側：Google 地圖 -->
         <div class="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14484.795461175385!2d121.0054238215072!3d24.822871947259348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468368cf667477d%3A0x5b2e89b4389846a4!2z5Lit5bSZ6YeM!5e0!3m2!1szh-TW!2stw&dirflg=d"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.0836105723542!2d121.00178767595163!3d24.826814146601972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468368e020b7ead%3A0x648368c24f836bc6!2zMzAy5paw56u55Y6_56u55YyX5biC5YWJ5piO5Y2B6KGXMTM56JmfMWY!5e0!3m2!1szh-TW!2stw!4v1740991342891!5m2!1szh-TW!2stw"
             width="100%" height="300" style="border: 0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </section>
