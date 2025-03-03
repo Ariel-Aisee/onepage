@@ -210,31 +210,31 @@
         <!-- 左側：聯絡資訊 -->
         <div class="contact-info text-center text-md-start">
           <h3 class="fw-bold mb-2">聯絡宏家</h3>
-          <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i> {{ contact.name }}
-          </p>
-          <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i> {{ contact.eng_name }}
-          </p>
-          <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i> 統一編號：{{ contact.tax }}
-          </p>
           <br />
+
+          <!-- 📌 「聯絡電話」標題 -->
           <h3 class="fw-bold mb-2">聯絡電話</h3>
-          <p class="mb-1"><i class="bi bi-telephone-fill"></i> 銷售窗口</p>
           <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i> {{ contact.person_1 }}
+            <i class="bi bi-telephone-fill"></i> +886-960-792909
           </p>
           <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i> {{ contact.person_2 }}
+            <i class="bi bi-telephone-fill"></i> +886-953-111646
           </p>
-          <p class="mb-1"><i class="bi bi-envelope-fill"></i> 業務信箱</p>
+
+          <br />
+
+          <!-- 📌 「業務信箱」標題 -->
+          <h3 class="fw-bold mb-2">業務信箱</h3>
           <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i>{{ contact.email }}
+            <i class="bi bi-envelope-fill"></i> Aisee_0518@protonmail.com
           </p>
-          <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> 聯絡地址</p>
+
+          <br />
+
+          <!-- 📌 「聯絡地址」標題 -->
+          <h3 class="fw-bold mb-2">聯絡地址</h3>
           <p class="mb-1">
-            <i class="bi bi-envelope-fill"></i>{{ contact.address }}
+            <i class="bi bi-geo-alt-fill"></i> 新竹縣竹北市光明十街139號1F
           </p>
         </div>
 
@@ -320,12 +320,12 @@ export default {
 
       // 聯絡方式
       contact: {
-        name: "宏家科技有限公司",
-        eng_name: "(AiSee Technology co.,Ltd)",
+        // name: "宏家科技有限公司",
+        // eng_name: "(AiSee Technology co.,Ltd)",
         tax: "93551295",
         email: "Aisee_0518@protonmail.com",
-        person_1: "Amber +886-960-792909",
-        person_2: "Ariel +886-953-111646",
+        person_1: "+886-960-792909",
+        person_2: "+886-953-111646",
         address: "新竹縣竹北市光明十街139號1F",
       },
 
@@ -582,5 +582,18 @@ export default {
   background: none; /* 移除背景色 */
   box-shadow: none; /* 移除陰影 */
   border-radius: 0; /* 取消圓角 */
+}
+
+/* 修改「聯絡宏家」區塊的背景顏色接近 Excel 的灰色 */
+.contact {
+  background: #d9d9d9 !important; /* 更接近 Excel 的淺灰色 */
+  color: #505050 !important; /* 深灰色文字 */
+}
+
+/* 確保「聯絡宏家」區塊內所有的標題、段落、連結都是黑色 */
+.contact h3,
+.contact p,
+.contact i {
+  color: #000000 !important; /* 確保標題與文字是黑色 */
 }
 </style>
