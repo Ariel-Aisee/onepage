@@ -177,33 +177,8 @@
       </button>
     </section>
 
-    <!-- <section id="products" class="py-5">
-      <div class="container">
-        <h2 class="text-center fw-bold mb-4">產品介紹</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div v-for="product in products" :key="product.name" class="col">
-            <div
-              class="card h-100 shadow-sm border-0"
-              @click="openCard(product)"
-            >
-              <div class="image-container">
-                <img
-                  :src="product.image"
-                  alt="產品圖片"
-                  class="card-img-top img-fluid"
-                />
-              </div>
-              <div class="card-body text-center">
-                <h5 class="card-title">{{ product.name }}</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <!-- 聯絡我們 -->
-    <section id="contact" class="contact py-5 text-white bg-dark">
+    <section id="contact" class="contact py-5 text-white">
       <div
         class="container d-flex flex-column flex-md-row align-items-center justify-content-between"
       >
@@ -271,11 +246,6 @@ export default {
   data() {
     return {
       title: "宏家科技",
-      // subtitle:
-      //   "宏家科技 (AiSee Technology) 成立於2023年，主要服務項目為各類型電子料的排單&現貨銷售。<br>" +
-      //   "電子料包含：主動IC/被動元件/連接器/感測器/模組…等等。<br>" +
-      //   "我們提供的產品適用於各種產業應用領域。<br>" +
-      //   "例如：IC測試廠、SMT廠、通訊、電腦、消費電子、醫療、工控、穿戴裝置、AI等等。",
       showBackToTop: false,
       // 營業項目
       services: [
@@ -301,34 +271,6 @@ export default {
           image: new URL("@/assets/service5.png", import.meta.url).href,
         },
       ],
-
-      // 產品介紹
-      // products: [
-      //   {
-      //     name: "電子元件1",
-      //     image: new URL("@/assets/product1.png", import.meta.url).href,
-      //   },
-      //   {
-      //     name: "電子元件2",
-      //     image: new URL("@/assets/product2.png", import.meta.url).href,
-      //   },
-      //   {
-      //     name: "電子元件3",
-      //     image: new URL("@/assets/product3.png", import.meta.url).href,
-      //   },
-      // ],
-
-      // 聯絡方式
-      contact: {
-        // name: "宏家科技有限公司",
-        // eng_name: "(AiSee Technology co.,Ltd)",
-        tax: "93551295",
-        email: "Aisee_0518@protonmail.com",
-        person_1: "+886-960-792909",
-        person_2: "+886-953-111646",
-        address: "新竹縣竹北市光明十街139號1F",
-      },
-
       isCardOpen: false, // 控制放大視窗是否開啟
       selectedCard: {}, // 被選中的卡片數據
     };
@@ -368,7 +310,7 @@ export default {
 
 /* Top 區塊 */
 .hero {
-  background: linear-gradient(135deg, #ffffff, #000000);
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
   min-height: 300px;
   display: flex;
   justify-content: center;
@@ -579,21 +521,28 @@ export default {
   text-align: center;
   font-size: 1.1rem;
   line-height: 1.6;
-  background: none; /* 移除背景色 */
-  box-shadow: none; /* 移除陰影 */
-  border-radius: 0; /* 取消圓角 */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 /* 修改「聯絡宏家」區塊的背景顏色接近 Excel 的灰色 */
 .contact {
-  background: #d9d9d9 !important; /* 更接近 Excel 的淺灰色 */
-  color: #505050 !important; /* 深灰色文字 */
+  background: #e3f2fd !important; /* Google Material Design 的淺藍 */
+  color: #000000 !important;
 }
 
-/* 確保「聯絡宏家」區塊內所有的標題、段落、連結都是黑色 */
+/* 確保所有標題、段落、圖標都是黑色 */
 .contact h3,
 .contact p,
 .contact i {
-  color: #000000 !important; /* 確保標題與文字是黑色 */
+  color: #000000 !important;
+}
+
+/* 📌 讓「業務信箱」和「聯絡地址」標題變大，與「聯絡電話」一致 */
+.contact-title {
+  font-size: 1.5rem; /* 放大標題 */
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 </style>
