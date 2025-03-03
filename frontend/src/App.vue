@@ -1,26 +1,56 @@
 <template>
   <div id="app">
     <!-- 導覽列 -->
-    <nav class="navbar navbar-expand-lg fixed-top" :class="{ 'navbar-scrolled': isScrolled }">
+    <nav
+      class="navbar navbar-expand-lg fixed-top"
+      :class="{ 'navbar-scrolled': isScrolled }"
+    >
       <div class="container">
         <a class="navbar-brand" href="#">宏家科技</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="切換導航">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="切換導航"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollToSection('company-intro')">公司介紹</a>
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('company-intro')"
+                >公司介紹</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollToSection('services')">營業項目</a>
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('services')"
+                >營業項目</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollToSection('products')">產品介紹</a>
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('products')"
+                >產品介紹</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollToSection('contact')">聯絡宏家</a>
+              <a
+                class="nav-link"
+                href="#"
+                @click.prevent="scrollToSection('contact')"
+                >聯絡宏家</a
+              >
             </li>
           </ul>
         </div>
@@ -61,9 +91,16 @@
         <h2 class="text-center fw-bold mb-4">營業項目</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div v-for="service in services" :key="service.title" class="col">
-            <div class="card h-100 shadow-sm border-0" @click="openCard(service)">
+            <div
+              class="card h-100 shadow-sm border-0"
+              @click="openCard(service)"
+            >
               <div class="image-container">
-                <img :src="service.image" alt="服務圖片" class="card-img-top img-fluid" />
+                <img
+                  :src="service.image"
+                  alt="服務圖片"
+                  class="card-img-top img-fluid"
+                />
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title">{{ service.title }}</h5>
@@ -81,32 +118,60 @@
 
         <!-- 第一張圖片 -->
         <div class="text-center mb-4">
-          <img src="@/assets/product1.png" alt="Analog & Power Line Cards" class="img-fluid" />
+          <img
+            src="@/assets/product1.png"
+            alt="Analog & Power Line Cards"
+            class="img-fluid"
+          />
         </div>
 
         <!-- 第二張圖片 -->
         <div class="text-center">
-          <img src="@/assets/product2.png" alt="Highend/Memory Line Cards" class="img-fluid" />
+          <img
+            src="@/assets/product2.png"
+            alt="Highend/Memory Line Cards"
+            class="img-fluid"
+          />
         </div>
         <!-- 第三張圖片 -->
         <div class="text-center">
-          <img src="@/assets/product3.png" alt="Wireless Line Cards" class="img-fluid" />
+          <img
+            src="@/assets/product3.png"
+            alt="Wireless Line Cards"
+            class="img-fluid"
+          />
         </div>
         <!-- 第四張圖片 -->
         <div class="text-center">
-          <img src="@/assets/product4.png" alt="Interconnect Line Cards" class="img-fluid" />
+          <img
+            src="@/assets/product4.png"
+            alt="Interconnect Line Cards"
+            class="img-fluid"
+          />
         </div>
         <!-- 第五張圖片 -->
         <div class="text-center">
-          <img src="@/assets/product5.png" alt="Emech Line Cards" class="img-fluid" />
+          <img
+            src="@/assets/product5.png"
+            alt="Emech Line Cards"
+            class="img-fluid"
+          />
         </div>
         <!-- 第六張圖片 -->
         <div class="text-center">
-          <img src="@/assets/product6.png" alt="Lighting Solutions" class="img-fluid" />
+          <img
+            src="@/assets/product6.png"
+            alt="Lighting Solutions"
+            class="img-fluid"
+          />
         </div>
         <!-- 第七張圖片 -->
         <div class="text-center">
-          <img src="@/assets/product7.png" alt="Passive Line Cards" class="img-fluid" />
+          <img
+            src="@/assets/product7.png"
+            alt="Passive Line Cards"
+            class="img-fluid"
+          />
         </div>
       </div>
       <!-- 回到頂部按鈕 -->
@@ -117,10 +182,11 @@
 
     <!-- 聯絡我們 -->
     <section id="contact" class="contact py-5 text-white">
-      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <div
+        class="container d-flex flex-column flex-md-row align-items-center justify-content-between"
+      >
         <!-- 左側：聯絡資訊 -->
         <div class="contact-info text-center text-md-start">
-
           <!-- 📌 「聯絡電話」標題 -->
           <h3 class="fw-bold mb-2">聯絡電話</h3>
           <p class="mb-1">
@@ -150,17 +216,20 @@
 
           <!-- 📌 「統一編號」標題 -->
           <h3 class="fw-bold mb-2">統一編號</h3>
-          <p class="mb-1">
-            <i class="bi bi-geo-alt-fill"></i> 93551295
-          </p>
+          <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> 93551295</p>
         </div>
 
         <!-- 右側：Google 地圖 -->
         <div class="map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.0836105723542!2d121.00178767595163!3d24.826814146601972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468368e020b7ead%3A0x648368c24f836bc6!2zMzAy5paw56u55Y6_56u55YyX5biC5YWJ5piO5Y2B6KGXMTM56JmfMWY!5e0!3m2!1szh-TW!2stw!4v1740991342891!5m2!1szh-TW!2stw"
-            width="100%" height="300" style="border: 0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            width="100%"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
           </iframe>
         </div>
       </div>
@@ -369,7 +438,7 @@ export default {
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-  .row-cols-md-3>.col {
+  .row-cols-md-3 > .col {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -464,24 +533,28 @@ export default {
   border-radius: 0;
 }
 
-/* 修改「聯絡宏家」區塊的背景顏色接近 Excel 的灰色 */
+/* 修改聯絡我們區塊的背景與文字顏色 */
 .contact {
-  background: #e3f2fd !important;
-  /* Google Material Design 的淺藍 */
-  color: #000000 !important;
+  background: #e3f2fd !important; /*聯絡我們的背景色*/
 }
 
-/* 確保所有標題、段落、圖標都是黑色 */
+/* 讓所有標題、段落、圖標顯示為黑色 */
 .contact h3,
 .contact p,
 .contact i {
-  color: #000000 !important;
+  color: #000000 !important; /*修改所有字體變黑色*/
 }
 
-/* 📌 讓「業務信箱」和「聯絡地址」標題變大，與「聯絡電話」一致 */
+/* 修改標題字體大小與顏色 */
+.contact h3 {
+  font-size: 2rem; /* 增加標題字體大小 */
+  font-weight: bold;
+  color: #000000 !important; /*修改「業務信箱」和「聯絡電話」「聯絡地址」「統一編號」標題，字體顏色*/
+}
+
+/* 📌 讓「業務信箱」和「聯絡地址」標題變大，與「聯絡電話」「統一編號」一致 */
 .contact-title {
-  font-size: 1.5rem;
-  /* 放大標題 */
+  font-size: 1.5rem; /* 放大標題 */
   font-weight: bold;
   margin-bottom: 10px;
 }
