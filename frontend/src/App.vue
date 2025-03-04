@@ -316,7 +316,7 @@ export default {
 
 /* Top 區塊 */
 .hero {
-  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  background: linear-gradient(135deg, #ffffff, #E0E0E0);
   min-height: 300px;
   display: flex;
   justify-content: center;
