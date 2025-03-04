@@ -535,7 +535,7 @@ export default {
 
 /* 修改聯絡我們區塊的背景與文字顏色 */
 .contact {
-  background: #9D9D9D !important; /*聯絡我們的背景色*/
+  background: #e3f2fd !important; /*聯絡我們的背景色*/
 }
 
 /* 讓所有標題、段落、圖標顯示為黑色 */
