@@ -574,21 +574,35 @@ export default {
   margin-bottom: 10px;
 }
 
+.phone-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.phone-title {
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  min-width: 120px;
+}
+
 .phone-numbers {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
+  align-items: flex-start;
+  gap: 5px;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .phone-numbers p {
   margin: 0;
-  padding: 5px 0;
-  text-align: center;
+  padding: 3px 0;
   white-space: nowrap;
-  font-size: 18px;
-  font-weight: bold;
-  width: 100%;
+}
+.phone-container {
+  align-items: baseline; /* 讓標題和號碼的基線對齊 */
 }
 </style>
