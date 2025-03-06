@@ -6,7 +6,7 @@
       :class="{ 'navbar-scrolled': isScrolled }"
     >
       <div class="container">
-        <a class="navbar-brand" href="#">宏家科技</a>
+        <!-- <a class="navbar-brand" href="#">宏家科技</a> -->
         <button
           class="navbar-toggler"
           type="button"
@@ -73,7 +73,11 @@
             宏家科技 (AiSee Technology)
             成立於2023年，主要服務項目為各類型電子料的排單&現貨銷售。
           </p>
-          <p class="fw-bold">電子料包含：</p>
+          <br />
+          <br />
+          <br />
+          <br />
+          <h2 class="fw-bold">電子料包含</h2>
           <div class="text-center">
             <img src="@/assets/intro1.png" alt="intro1" class="img-fluid" />
           </div>
@@ -247,7 +251,6 @@
         <h5 class="expanded-title">
           {{ selectedCard.subtitle || selectedCard.name }}
         </h5>
-        
       </div>
     </div>
   </div>
@@ -258,14 +261,13 @@ export default {
   data() {
     return {
       title: "宏家科技",
+      subtitle: "Aisee Technology",
       showBackToTop: false,
       // 營業項目
       services: [
         {
-          title:
-            "全球電子料採購供應鏈與銷售服務",
-          subtitle:
-            "(主動IC/被動元件/連接器/感測器/模組..)",  
+          title: "全球電子料採購供應鏈與銷售服務",
+          subtitle: "(主動IC/被動元件/連接器/感測器/模組..)",
           image: new URL("@/assets/service1.png", import.meta.url).href,
         },
         {
@@ -278,12 +280,12 @@ export default {
         },
         {
           title: "提供客戶BOM表優化方案",
-          subtitle: "(協尋停產料/替代料)", 
+          subtitle: "(協尋停產料/替代料)",
           image: new URL("@/assets/service4.png", import.meta.url).href,
         },
         {
           title: "代銷呆滯庫存",
-          subtitle: "(貨源:代理商/終端客戶)", 
+          subtitle: "(貨源:代理商/終端客戶)",
           image: new URL("@/assets/service5.png", import.meta.url).href,
         },
       ],
@@ -326,16 +328,21 @@ export default {
 
 /* Top 區塊 */
 .hero {
-  background: linear-gradient(135deg, #ffffff, #E0E0E0);
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
   min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.hero p {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  color: black !important;
+}
 
 /* Top 字體*/
 .hero h1 {
-  background: linear-gradient(135deg, #0072bc 50%, #000 50%);
+  background: linear-gradient(135deg, #000000 50%, #000 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -545,7 +552,7 @@ export default {
 
 /* 修改聯絡我們區塊的背景與文字顏色 */
 .contact {
-  background: #E0E0E0 !important; /*聯絡我們的背景色*/
+  background: #e0e0e0 !important; /*聯絡我們的背景色*/
 }
 
 /* 讓所有標題、段落、圖標顯示為黑色 */
