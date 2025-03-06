@@ -576,9 +576,9 @@ export default {
 
 .phone-numbers {
   display: flex;
-  flex-direction: column; /* 改為垂直排列 */
-  align-items: center; /* 讓內容水平置中 */
-  gap: 10px; /* 增加電話號碼之間的間距 */
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .phone-numbers p {
