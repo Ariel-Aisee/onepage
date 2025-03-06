@@ -579,6 +579,7 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  text-align: center;
 }
 
 .phone-numbers p {
@@ -586,5 +587,8 @@ export default {
   padding: 5px 0;
   text-align: center;
   white-space: nowrap;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
 }
 </style>
