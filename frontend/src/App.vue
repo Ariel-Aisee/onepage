@@ -100,10 +100,12 @@
                   :src="service.image"
                   alt="服務圖片"
                   class="card-img-top img-fluid"
+                  width="200%"
                 />
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title">{{ service.title }}</h5>
+                <h5 class="card-title">{{ service.subtitle }}</h5>
               </div>
             </div>
           </div>
@@ -242,6 +244,10 @@
         <h5 class="expanded-title">
           {{ selectedCard.title || selectedCard.name }}
         </h5>
+        <h5 class="expanded-title">
+          {{ selectedCard.subtitle || selectedCard.name }}
+        </h5>
+        
       </div>
     </div>
   </div>
@@ -257,7 +263,9 @@ export default {
       services: [
         {
           title:
-            "全球電子料採購供應鏈與銷售服務(主動IC/被動元件/連接器/感測器/模組..)",
+            "全球電子料採購供應鏈與銷售服務",
+          subtitle:
+            "(主動IC/被動元件/連接器/感測器/模組..)",  
           image: new URL("@/assets/service1.png", import.meta.url).href,
         },
         {
@@ -269,11 +277,13 @@ export default {
           image: new URL("@/assets/service3.png", import.meta.url).href,
         },
         {
-          title: "提供客戶BOM表優化方案(協尋停產料/替代料)",
+          title: "提供客戶BOM表優化方案",
+          subtitle: "(協尋停產料/替代料)", 
           image: new URL("@/assets/service4.png", import.meta.url).href,
         },
         {
-          title: "代銷呆滯庫存(貨源:代理商/終端客戶)",
+          title: "代銷呆滯庫存",
+          subtitle: "(貨源:代理商/終端客戶)", 
           image: new URL("@/assets/service5.png", import.meta.url).href,
         },
       ],
