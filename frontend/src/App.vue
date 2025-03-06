@@ -614,7 +614,7 @@ export default {
 /* 確保電話號碼在 Mac 和 iPhone 上顯示一致 */
 @media screen and (max-width: 768px) {
   .phone-container {
-    display: block; /* 讓電話號碼單獨顯示 */
+    display: block;
     text-align: left;
   }
 
@@ -623,8 +623,10 @@ export default {
   }
 
   .phone-numbers p {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Arial", "Helvetica", sans-serif;
+    color: inherit;
   }
 }
 </style>
