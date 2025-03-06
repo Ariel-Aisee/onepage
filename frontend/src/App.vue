@@ -195,12 +195,10 @@
         <div class="contact-info text-center text-md-start">
           <!-- 📌 「聯絡電話」標題 -->
           <h3 class="fw-bold mb-2">聯絡電話</h3>
-          <p class="mb-1">
-            <i class="bi bi-telephone-fill"></i> +886-960-792909
-          </p>
-          <p class="mb-1">
-            <i class="bi bi-telephone-fill"></i> +886-953-111646
-          </p>
+          <div class="phone-numbers">
+            <p><i class="bi bi-telephone-fill"></i> +886-960-792909</p>
+            <p><i class="bi bi-telephone-fill"></i> +886-953-111646</p>
+          </div>
 
           <br />
 
@@ -267,7 +265,7 @@ export default {
       services: [
         {
           title: "全球電子料採購供應鏈與銷售服務",
-          subtitle: "(主動IC/被動元件/連接器/感測器/模組..)",
+          subtitle: "<主動IC/被動元件/連接器/感測器/模組..>",
           image: new URL("@/assets/service1.png", import.meta.url).href,
         },
         {
@@ -280,12 +278,12 @@ export default {
         },
         {
           title: "提供客戶BOM表優化方案",
-          subtitle: "(協尋停產料/替代料)",
+          subtitle: "<協尋停產料/替代料>",
           image: new URL("@/assets/service4.png", import.meta.url).href,
         },
         {
           title: "代銷呆滯庫存",
-          subtitle: "(貨源:代理商/終端客戶)",
+          subtitle: "<貨源:代理商/終端客戶>",
           image: new URL("@/assets/service5.png", import.meta.url).href,
         },
       ],
@@ -574,5 +572,16 @@ export default {
   font-size: 1.5rem; /* 放大標題 */
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+.phone-numbers {
+  display: flex; /* 讓電話號碼保持平行 */
+  gap: 20px; /* 控制電話號碼間距 */
+  align-items: center; /* 確保圖示對齊 */
+}
+
+.phone-numbers p {
+  margin: 0; /* 移除 margin 避免換行 */
+  white-space: nowrap; /* 防止文字換行 */
 }
 </style>
