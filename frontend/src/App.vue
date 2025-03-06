@@ -597,12 +597,34 @@ export default {
   line-height: 1.5;
 }
 
+.phone-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
 .phone-numbers p {
+  font-size: 1rem;
   margin: 0;
   padding: 3px 0;
-  white-space: nowrap;
+  font-weight: normal;
 }
-.phone-container {
-  align-items: baseline; /* 讓標題和號碼的基線對齊 */
+
+/* 確保電話號碼在 Mac 和 iPhone 上顯示一致 */
+@media screen and (max-width: 768px) {
+  .phone-container {
+    display: block;
+    text-align: left;
+  }
+
+  .phone-numbers {
+    display: block;
+  }
+
+  .phone-numbers p {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 }
 </style>
