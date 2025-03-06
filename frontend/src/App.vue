@@ -623,8 +623,10 @@ export default {
   }
 
   .phone-numbers p {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: inherit;
+    color: inherit;
   }
 }
 </style>
