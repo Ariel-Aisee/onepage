@@ -593,7 +593,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -614,7 +614,7 @@ export default {
 /* 確保電話號碼在 Mac 和 iPhone 上顯示一致 */
 @media screen and (max-width: 768px) {
   .phone-container {
-    display: block;
+    display: block; /* 讓電話號碼單獨顯示 */
     text-align: left;
   }
 
@@ -623,10 +623,8 @@ export default {
   }
 
   .phone-numbers p {
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: inherit;
-    color: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 }
 </style>
