@@ -575,13 +575,13 @@ export default {
 }
 
 .phone-numbers {
-  display: flex; /* 讓電話號碼保持平行 */
-  gap: 20px; /* 控制電話號碼間距 */
-  align-items: center; /* 確保圖示對齊 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .phone-numbers p {
-  margin: 0; /* 移除 margin 避免換行 */
-  white-space: nowrap; /* 防止文字換行 */
+  margin: 5px 0;
+  white-space: nowrap;
 }
 </style>
