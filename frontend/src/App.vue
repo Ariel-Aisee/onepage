@@ -582,7 +582,9 @@ export default {
 }
 
 .phone-numbers p {
-  margin: 5px 0;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
   white-space: nowrap;
 }
 </style>
