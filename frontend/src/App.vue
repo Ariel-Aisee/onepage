@@ -70,7 +70,7 @@
         <h2 class="text-center fw-bold mb-4">公司介紹</h2>
         <div class="intro-box">
           <p class="fw-bold">
-            宏家科技 (AiSee Technology)
+            宏家科技 (Aisee Technology)
             成立於2023年，主要服務項目為各類型電子料的排單&現貨銷售。
           </p>
           <br />
