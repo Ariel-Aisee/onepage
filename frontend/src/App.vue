@@ -633,4 +633,11 @@ export default {
     color: inherit;
   }
 }
+.image-source {
+  text-align: left;
+  font-size: 0.6rem;
+  color: #555; /* 調整顏色以更美觀 */
+  margin-top: 10px;
+  padding-left: 18px;
+}
 </style>
