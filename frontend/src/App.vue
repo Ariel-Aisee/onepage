@@ -278,6 +278,7 @@ export default {
         },
         {
           title: "為專案批量試產的客户備齊BOM上電子料",
+          description: "AppKnox",
           image: new URL("@/assets/service3.png", import.meta.url).href,
         },
         {
