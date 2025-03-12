@@ -110,6 +110,9 @@
               <div class="card-body text-center">
                 <h5 class="card-title">{{ service.title }}</h5>
                 <h5 class="card-title">{{ service.subtitle }}</h5>
+                <p class="image-source" v-if="service.description">
+                  (圖片來源: {{ service.description }})
+                </p>
               </div>
             </div>
           </div>
@@ -270,6 +273,7 @@ export default {
         },
         {
           title: "提供急單/散料/現貨/排單需求",
+          description: "淺談股海",
           image: new URL("@/assets/service2.png", import.meta.url).href,
         },
         {
