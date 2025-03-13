@@ -269,6 +269,7 @@ export default {
         {
           title: "全球電子料採購供應鏈與銷售服務",
           subtitle: "<主動IC/被動元件/連接器/感測器/模組..>",
+          description: "淺談股海",
           image: new URL("@/assets/service1.png", import.meta.url).href,
         },
         {
