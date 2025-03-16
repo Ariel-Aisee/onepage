@@ -210,6 +210,12 @@
           <p class="mb-1">
             <i class="bi bi-envelope-fill"></i> Aisee_0518@protonmail.com
           </p>
+          <p class="mb-1">
+            <i class="bi bi-envelope-fill"></i> sales_0518@protonmail.com
+          </p>
+          <p class="mb-1">
+            <i class="bi bi-envelope-fill"></i> marketing_0518@protonmail.com
+          </p>
 
           <br />
 
