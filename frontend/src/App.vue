@@ -207,13 +207,13 @@
 
           <!-- 📌 「業務信箱」標題 -->
           <h3 class="fw-bold mb-2">業務信箱</h3>
-          <p class="mb-1">
+          <p class="mb-1 text-start">
             <i class="bi bi-envelope-fill"></i> Aisee_0518@protonmail.com
           </p>
-          <p class="mb-1">
+          <p class="mb-1 text-start">
             <i class="bi bi-envelope-fill"></i> sales_0518@protonmail.com
           </p>
-          <p class="mb-1">
+          <p class="mb-1 text-start">
             <i class="bi bi-envelope-fill"></i> marketing_0518@protonmail.com
           </p>
 
