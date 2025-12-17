@@ -14,76 +14,103 @@
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
-          aria-label="切換導航"
+          :aria-label="t.ariaToggleNav"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
             <li class="nav-item">
               <a
                 class="nav-link"
                 href="#"
                 @click.prevent="scrollToSection('company-intro')"
-                >公司介紹</a
               >
+                {{ t.navCompany }}
+              </a>
             </li>
+
             <li class="nav-item">
               <a
                 class="nav-link"
                 href="#"
                 @click.prevent="scrollToSection('services')"
-                >營業項目</a
               >
+                {{ t.navServices }}
+              </a>
             </li>
+
             <li class="nav-item">
               <a
                 class="nav-link"
                 href="#"
                 @click.prevent="scrollToSection('products')"
-                >產品介紹</a
               >
+                {{ t.navProducts }}
+              </a>
             </li>
+
             <li class="nav-item">
               <a
                 class="nav-link"
                 href="#"
                 @click.prevent="scrollToSection('contact')"
-                >聯絡宏家</a
               >
+                {{ t.navContact }}
+              </a>
+            </li>
+
+            <!-- 語言切換按鈕 -->
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-sm lang-btn"
+                @click="toggleLang"
+                :aria-label="t.ariaToggleLang"
+              >
+                {{ lang === "zh" ? "EN" : "中文" }}
+              </button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
     <!-- 頂部 Hero 區塊 -->
     <section class="hero text-white text-center d-flex align-items-center">
       <div class="container">
-        <h1 class="display-3 fw-bold">{{ title }}</h1>
-        <p class="lead" v-html="subtitle"></p>
+        <h1 class="display-3 fw-bold">{{ t.heroTitle }}</h1>
+        <p class="lead" v-html="t.heroSubtitle"></p>
       </div>
     </section>
 
-    <!-- 🔥 新增「公司介紹」框 -->
+    <!-- 公司介紹 -->
     <section id="company-intro" class="company-intro">
       <div class="container">
-        <h2 class="text-center fw-bold mb-4">公司介紹</h2>
+        <h2 class="text-center fw-bold mb-4">{{ t.companyTitle }}</h2>
         <div class="intro-box">
           <p class="fw-bold">
-            宏家科技 (Aisee Technology)
-            成立於2023年，主要服務項目為各類型電子料的排單&現貨銷售。
+            {{ t.companyDesc }}
           </p>
+
           <br />
           <br />
           <br />
           <br />
-          <h2 class="fw-bold">電子料包含</h2>
+
+          <h2 class="fw-bold">{{ t.includeTitle }}</h2>
+
           <div class="text-center">
-            <img src="@/assets/intro1.png" alt="intro1" class="img-fluid" />
+            <!-- ✅ 依語言切換圖片 -->
+            <img :src="introImage1" alt="intro1" class="img-fluid" />
           </div>
-          <p class="fw-bold">我們提供的產品適用於各種產業應用領域。</p>
+
+          <p class="fw-bold">{{ t.includeHint }}</p>
+
           <div class="text-center">
-            <img src="@/assets/intro2.png" alt="intro1" class="img-fluid" />
+            <!-- ✅ 依語言切換圖片 -->
+            <img :src="introImage2" alt="intro2" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -92,9 +119,9 @@
     <!-- 營業項目 -->
     <section id="services" class="py-5 bg-light">
       <div class="container">
-        <h2 class="text-center fw-bold mb-4">營業項目</h2>
+        <h2 class="text-center fw-bold mb-4">{{ t.servicesTitle }}</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div v-for="service in services" :key="service.title" class="col">
+          <div v-for="service in servicesView" :key="service.key" class="col">
             <div
               class="card h-100 shadow-sm border-0"
               @click="openCard(service)"
@@ -102,16 +129,20 @@
               <div class="image-container">
                 <img
                   :src="service.image"
-                  alt="服務圖片"
+                  :alt="t.serviceImageAlt"
                   class="card-img-top img-fluid"
                   width="200%"
                 />
               </div>
+
               <div class="card-body text-center">
                 <h5 class="card-title">{{ service.title }}</h5>
-                <h5 class="card-title">{{ service.subtitle }}</h5>
+                <h5 class="card-title" v-if="service.subtitle">
+                  {{ service.subtitle }}
+                </h5>
+
                 <p class="image-source" v-if="service.description">
-                  (圖片來源: {{ service.description }})
+                  ({{ t.imageSourceLabel }}: {{ service.description }})
                 </p>
               </div>
             </div>
@@ -123,7 +154,7 @@
     <!-- 產品介紹 -->
     <section id="products" class="py-5">
       <div class="container">
-        <h2 class="text-center fw-bold mb-4">產品介紹</h2>
+        <h2 class="text-center fw-bold mb-4">{{ t.productsTitle }}</h2>
 
         <!-- 第一張圖片 -->
         <div class="text-center mb-4">
@@ -142,6 +173,7 @@
             class="img-fluid"
           />
         </div>
+
         <!-- 第三張圖片 -->
         <div class="text-center">
           <img
@@ -150,6 +182,7 @@
             class="img-fluid"
           />
         </div>
+
         <!-- 第四張圖片 -->
         <div class="text-center">
           <img
@@ -158,6 +191,7 @@
             class="img-fluid"
           />
         </div>
+
         <!-- 第五張圖片 -->
         <div class="text-center">
           <img
@@ -166,6 +200,7 @@
             class="img-fluid"
           />
         </div>
+
         <!-- 第六張圖片 -->
         <div class="text-center">
           <img
@@ -174,6 +209,7 @@
             class="img-fluid"
           />
         </div>
+
         <!-- 第七張圖片 -->
         <div class="text-center">
           <img
@@ -183,8 +219,14 @@
           />
         </div>
       </div>
+
       <!-- 回到頂部按鈕 -->
-      <button v-if="showBackToTop" @click="scrollToTop" class="back-to-top">
+      <button
+        v-if="showBackToTop"
+        @click="scrollToTop"
+        class="back-to-top"
+        :aria-label="t.ariaBackToTop"
+      >
         ↑
       </button>
     </section>
@@ -196,8 +238,7 @@
       >
         <!-- 左側：聯絡資訊 -->
         <div class="contact-info text-center text-md-start">
-          <!-- 📌 「聯絡電話」標題 -->
-          <h3 class="fw-bold mb-2">聯絡電話</h3>
+          <h3 class="fw-bold mb-2">{{ t.contactPhone }}</h3>
           <div class="phone-numbers">
             <p><i class="bi bi-telephone-fill"></i> +886-960-792909</p>
             <p><i class="bi bi-telephone-fill"></i> +886-953-111646</p>
@@ -205,8 +246,7 @@
 
           <br />
 
-          <!-- 📌 「業務信箱」標題 -->
-          <h3 class="fw-bold mb-2">業務信箱</h3>
+          <h3 class="fw-bold mb-2">{{ t.contactMail }}</h3>
           <p class="mb-1 text-start">
             <i class="bi bi-envelope-fill"></i> Aisee_0518@protonmail.com
           </p>
@@ -219,16 +259,15 @@
 
           <br />
 
-          <!-- 📌 「聯絡地址」標題 -->
-          <h3 class="fw-bold mb-2">聯絡地址</h3>
+          <h3 class="fw-bold mb-2">{{ t.contactAddr }}</h3>
           <p class="mb-1">
-            <i class="bi bi-geo-alt-fill"></i> 新竹縣竹北市光明十街139號1F
+            <i class="bi bi-geo-alt-fill"></i>
+            {{ t.addressText }}
           </p>
 
           <br />
 
-          <!-- 📌 「統一編號」標題 -->
-          <h3 class="fw-bold mb-2">統一編號</h3>
+          <h3 class="fw-bold mb-2">{{ t.contactTax }}</h3>
           <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> 93551295</p>
         </div>
 
@@ -251,11 +290,11 @@
     <!-- 放大卡片視窗 -->
     <div v-if="isCardOpen" class="overlay" @click="closeCard">
       <div class="expanded-card">
-        <img :src="selectedCard.image" alt="放大圖片" class="expanded-img" />
+        <img :src="selectedCard.image" alt="expanded" class="expanded-img" />
         <h5 class="expanded-title">
           {{ selectedCard.title || selectedCard.name }}
         </h5>
-        <h5 class="expanded-title">
+        <h5 class="expanded-title" v-if="selectedCard.subtitle">
           {{ selectedCard.subtitle || selectedCard.name }}
         </h5>
       </div>
@@ -267,43 +306,194 @@
 export default {
   data() {
     return {
-      title: "宏家科技",
-      subtitle: "Aisee Technology",
+      // 語言：zh / en
+      lang: "zh",
+
+      // i18n 字典（你可持續擴充）
+      i18n: {
+        zh: {
+          ariaToggleNav: "切換導航",
+          ariaToggleLang: "切換語言",
+          ariaBackToTop: "回到頂部",
+
+          navCompany: "公司介紹",
+          navServices: "營業項目",
+          navProducts: "產品介紹",
+          navContact: "聯絡宏家",
+
+          heroTitle: "宏家科技",
+          heroSubtitle: "Aisee Technology",
+
+          companyTitle: "公司介紹",
+          companyDesc:
+            "宏家科技 (Aisee Technology) 成立於2023年，主要服務項目為各類型電子料的排單&現貨銷售。",
+          includeTitle: "電子料包含",
+          includeHint: "我們提供的產品適用於各種產業應用領域。",
+
+          servicesTitle: "營業項目",
+          productsTitle: "產品介紹",
+
+          serviceImageAlt: "服務圖片",
+          imageSourceLabel: "圖片來源",
+
+          contactPhone: "聯絡電話",
+          contactMail: "業務信箱",
+          contactAddr: "聯絡地址",
+          contactTax: "統一編號",
+          addressText: "新竹縣竹北市光明十街139號1F",
+        },
+
+        en: {
+          ariaToggleNav: "Toggle navigation",
+          ariaToggleLang: "Switch language",
+          ariaBackToTop: "Back to top",
+
+          navCompany: "Company",
+          navServices: "Services",
+          navProducts: "Products",
+          navContact: "Contact",
+
+          heroTitle: "Aisee Technology",
+
+          companyTitle: "Company Profile",
+          companyDesc:
+            "Aisee Technology was established in 2023. We primarily provide scheduled orders and spot sales for various electronic components.",
+          includeTitle: "Included Components",
+          includeHint:
+            "Our products are applicable across a wide range of industries.",
+
+          servicesTitle: "Services",
+          productsTitle: "Products",
+
+          serviceImageAlt: "Service image",
+          imageSourceLabel: "Image source",
+
+          contactPhone: "Phone",
+          contactMail: "Business Email",
+          contactAddr: "Address",
+          contactTax: "Tax ID",
+          addressText:
+            "1F., No. 139, Guangming 10th St., Zhubei City, Hsinchu County, Taiwan",
+        },
+      },
+
+      // 你的原本狀態（保留）
       showBackToTop: false,
-      // 營業項目
+      isScrolled: false,
+
+      // 營業項目（保留原本內容當 zh，英文由 servicesEn 覆寫顯示）
       services: [
         {
+          key: "s1",
           title: "全球電子料採購供應鏈與銷售服務",
           subtitle: "<主動IC/被動元件/連接器/感測器/模組..>",
           description: "淺談股海",
           image: new URL("@/assets/service1.png", import.meta.url).href,
         },
         {
+          key: "s2",
           title: "提供急單/散料/現貨/排單需求",
+          subtitle: "",
           description: "淺談股海",
           image: new URL("@/assets/service2.png", import.meta.url).href,
         },
         {
+          key: "s3",
           title: "為專案批量試產的客户備齊BOM上電子料",
+          subtitle: "",
           description: "AppKnox",
           image: new URL("@/assets/service3.png", import.meta.url).href,
         },
         {
+          key: "s4",
           title: "提供客戶BOM表優化方案",
           subtitle: "<協尋停產料/替代料>",
+          description: "",
           image: new URL("@/assets/service4.png", import.meta.url).href,
         },
         {
+          key: "s5",
           title: "代銷呆滯庫存",
           subtitle: "<貨源:代理商/終端客戶>",
+          description: "",
           image: new URL("@/assets/service5.png", import.meta.url).href,
         },
       ],
-      isCardOpen: false, // 控制放大視窗是否開啟
-      selectedCard: {}, // 被選中的卡片數據
+
+      // 英文版服務文字（只影響顯示，不破壞原資料）
+      servicesEn: [
+        {
+          key: "s1",
+          title: "Global electronic components sourcing & sales services",
+          subtitle:
+            "<Active IC / Passive components / Connectors / Sensors / Modules...>",
+        },
+        {
+          key: "s2",
+          title: "Urgent orders / loose parts / spot stock / scheduled orders",
+          subtitle: "",
+        },
+        {
+          key: "s3",
+          title: "BOM fulfillment for pilot production projects (batch)",
+          subtitle: "",
+        },
+        {
+          key: "s4",
+          title: "BOM optimization solutions",
+          subtitle: "<EOL parts / Alternates>",
+        },
+        {
+          key: "s5",
+          title: "Consignment sales for excess & slow-moving inventory",
+          subtitle: "<Sources: Distributors / End customers>",
+        },
+      ],
+
+      isCardOpen: false,
+      selectedCard: {},
     };
   },
+
+  computed: {
+    t() {
+      return this.i18n[this.lang];
+    },
+
+    // ✅ 公司介紹兩張圖：依語言切換
+    introImage1() {
+      return this.lang === "zh"
+        ? new URL("@/assets/intro1.png", import.meta.url).href
+        : new URL("@/assets/intro1-1.png", import.meta.url).href;
+    },
+
+    introImage2() {
+      return this.lang === "zh"
+        ? new URL("@/assets/intro2.png", import.meta.url).href
+        : new URL("@/assets/intro2-2.png", import.meta.url).href;
+    },
+
+    // 服務卡片顯示用：英文時覆寫 title/subtitle，其餘欄位沿用原本（image/description）
+    servicesView() {
+      if (this.lang === "zh") return this.services;
+
+      const enMap = new Map(this.servicesEn.map((x) => [x.key, x]));
+      return this.services.map((s) => {
+        const en = enMap.get(s.key);
+        return {
+          ...s,
+          title: en?.title || s.title,
+          subtitle: en?.subtitle || s.subtitle,
+        };
+      });
+    },
+  },
+
   methods: {
+    toggleLang() {
+      this.lang = this.lang === "zh" ? "en" : "zh";
+    },
+
     openCard(item) {
       this.selectedCard = item;
       this.isCardOpen = true;
@@ -311,22 +501,29 @@ export default {
     closeCard() {
       this.isCardOpen = false;
     },
+
     handleScroll() {
       this.showBackToTop = window.scrollY > 300;
+      this.isScrolled = window.scrollY > 10;
     },
+
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
-    scrollToSection: (sectionId) => {
+
+    scrollToSection(sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
       }
     },
   },
+
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    this.handleScroll();
   },
+
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   },
@@ -335,6 +532,12 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap");
+
+/* 語言切換按鈕 */
+.lang-btn {
+  border-radius: 20px;
+  padding: 6px 12px;
+}
 
 /* Top 區塊 */
 .hero {
@@ -393,7 +596,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(241, 237, 237, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -479,21 +682,18 @@ export default {
 
 /*navbar text*/
 .navbar-scrolled {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(245, 238, 238, 1);
 }
 
-/*navbar text back*/
+/*navbar text*/
 .navbar .nav-link {
   color: rgb(0, 0, 0);
-  /* 預設文字顏色 */
   transition: color 0.3s ease-in-out;
-  /* 平滑變化 */
 }
 
-/*navbar text back*/
+/*navbar hover*/
 .navbar .nav-link:hover {
   color: #0072bc;
-  /* 滑鼠移過去變成藍色 */
 }
 
 /* 調整聯絡我們的容器 */
@@ -513,15 +713,12 @@ export default {
 
   .contact-info {
     flex: 1;
-    /* 左邊的聯絡資訊佔據 50% */
     padding-right: 20px;
   }
 
   .map-container {
     flex: 1;
-    /* 右邊的地圖佔據 50% */
     max-width: 500px;
-    /* 限制最大寬度 */
   }
 }
 
@@ -543,7 +740,6 @@ export default {
 /* 公司介紹區塊 */
 .company-intro {
   background: #f8f9fa;
-  /* 背景色 */
   padding: 50px 0;
 }
 
@@ -562,26 +758,26 @@ export default {
 
 /* 修改聯絡我們區塊的背景與文字顏色 */
 .contact {
-  background: #e0e0e0 !important; /*聯絡我們的背景色*/
+  background: #e0e0e0 !important;
 }
 
 /* 讓所有標題、段落、圖標顯示為黑色 */
 .contact h3,
 .contact p,
 .contact i {
-  color: #000000 !important; /*修改所有字體變黑色*/
+  color: #000000 !important;
 }
 
 /* 修改標題字體大小與顏色 */
 .contact h3 {
-  font-size: 2rem; /* 增加標題字體大小 */
+  font-size: 2rem;
   font-weight: bold;
-  color: #000000 !important; /*修改「業務信箱」和「聯絡電話」「聯絡地址」「統一編號」標題，字體顏色*/
+  color: #000000 !important;
 }
 
 /* 📌 讓「業務信箱」和「聯絡地址」標題變大，與「聯絡電話」「統一編號」一致 */
 .contact-title {
-  font-size: 1.5rem; /* 放大標題 */
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -641,10 +837,11 @@ export default {
     color: inherit;
   }
 }
+
 .image-source {
   text-align: left;
   font-size: 0.6rem;
-  color: #555; /* 調整顏色以更美觀 */
+  color: #555;
   margin-top: 10px;
   padding-left: 18px;
 }
